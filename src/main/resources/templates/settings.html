@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings - Finance App</title>
+  <link rel="stylesheet" href="reports.css"> <!-- Reuse your existing CSS -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <!-- Sidebar Menu -->
+  <div class="sidebar">
+    <div class="logo">
+      <i class="fas fa-wallet"></i>
+      <h2>Finance App</h2>
+    </div>
+    <ul class="menu">
+      <li>
+        <a href="/dashboard">
+          <i class="fas fa-home"></i>
+          <span>Home</span>
+        </a>
+      </li>
+      <li>
+        <a href="/transactions">
+          <i class="fas fa-exchange-alt"></i>
+          <span>Transactions</span>
+        </a>
+      </li>
+      <li>
+        <a href="/analytics">
+          <i class="fas fa-chart-line"></i>
+          <span>Analytics</span>
+        </a>
+      </li>
+      <li>
+        <a href="/reports">
+          <i class="fas fa-file-alt"></i>
+          <span>Reports</span>
+        </a>
+      </li>
+      <li>
+        <a href="/about">
+          <i class="fas fa-info-circle"></i>
+          <span>About</span>
+        </a>
+      </li>
+      <li>
+        <a href="/settings" class="active">
+          <i class="fas fa-cog"></i>
+          <span>Settings</span>
+        </a>
+      </li>
+    </ul>
+    <div class="logout">
+      <a href="/logout">
+        <i class="fas fa-sign-out-alt"></i>
+        <span>Logout</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="dashboard-container">
+    <!-- Header -->
+    <header>
+      <button class="sidebar-toggle" onclick="toggleSidebar()">
+        <i class="fas fa-bars"></i>
+      </button>
+      <h1>Settings</h1>
+      <div class="header-actions">
+        <div class="notification">
+          <i class="fas fa-bell"></i>
+          <span class="badge">3</span>
+          <div class="notification-dropdown">
+            <p>Low balance alert</p>
+            <p>Bill due tomorrow</p>
+            <p>New feature added</p>
+          </div>
+        </div>
+        <label class="theme-switch">
+          <input type="checkbox" id="theme-toggle">
+          <span class="slider"></span>
+        </label>
+      </div>
+    </header>
+
+    <!-- Settings Content -->
+    <div class="settings-content">
+      <!-- Profile Settings -->
+      <section class="settings-section">
+        <h2>Profile Settings</h2>
+        <form id="profile-form">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" value="Aajaan Shaikh">
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" value="shaikhaajaan786@gmail.com">
+          </div>
+          <div class="form-group">
+            <label for="profile-pic">Profile Picture</label>
+            <input type="file" id="profile-pic" name="profile-pic" accept="image/*">
+          </div>
+        </form>
+      </section>
+
+      <!-- Theme Customization -->
+      <section class="settings-section">
+        <h2>Theme</h2>
+        <div class="theme-options">
+          <label>
+            <input type="radio" name="theme" value="light" checked> Light Mode
+          </label>
+          <label>
+            <input type="radio" name="theme" value="dark"> Dark Mode
+          </label>
+        </div>
+      </section>
+
+      <!-- Notification Preferences -->
+      <section class="settings-section">
+        <h2>Notifications</h2>
+        <div class="notification-options">
+          <label>
+            <input type="checkbox" name="notifications" checked> Enable Notifications
+          </label>
+          <label>
+            <input type="checkbox" name="email-alerts"> Email Alerts
+          </label>
+        </div>
+      </section>
+
+      <!-- Security Settings -->
+      <section class="settings-section">
+        <h2>Security</h2>
+        <div class="security-options">
+          <button class="btn" onclick="changePassword()">Change Password</button>
+          <button class="btn" onclick="enableTwoFactorAuth()">Enable Two-Factor Authentication</button>
+        </div>
+      </section>
+
+      <!-- Save/Cancel Buttons -->
+      <div class="settings-actions">
+        <button class="btn btn-primary" onclick="saveSettings()">Save Changes</button>
+        <button class="btn btn-secondary" onclick="cancelChanges()">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="/js/reports.js"></script>
+  <script>
+    // JavaScript for handling settings
+    function changePassword() {
+      alert("Change Password functionality will be implemented here.");
+    }
+
+    function enableTwoFactorAuth() {
+      alert("Two-Factor Authentication functionality will be implemented here.");
+    }
+
+    function saveSettings() {
+      alert("Settings saved successfully!");
+    }
+
+    function cancelChanges() {
+      alert("Changes discarded.");
+    }
+  </script>
+</body>
+</html>

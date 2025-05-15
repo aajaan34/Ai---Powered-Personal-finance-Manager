@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reports</title>
+  <link rel="stylesheet" href="reports.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <!-- Sidebar Menu -->
+  <div class="sidebar">
+    <div class="logo">
+      <i class="fas fa-wallet"></i>
+      <h2>Finance App</h2>
+    </div>
+    <ul class="menu">
+      <li>
+        <a href="/dashboard">
+          <i class="fas fa-home"></i>
+          <span>Home</span>
+        </a>
+      </li>
+      <li>
+        <a href="/transactions">
+          <i class="fas fa-exchange-alt"></i>
+          <span>Transactions</span>
+        </a>
+      </li>
+      <li>
+        <a href="/analytics">
+          <i class="fas fa-chart-line"></i>
+          <span>Analytics</span>
+        </a>
+      </li>
+      <li>
+        <a href="/reports" class="active">
+          <i class="fas fa-file-alt"></i>
+          <span>Reports</span>
+        </a>
+      </li>
+      <li>
+        <a href="/about">
+          <i class="fas fa-info-circle"></i>
+          <span>About</span>
+        </a>
+      </li>
+      <li>
+        <a href="/settings">
+          <i class="fas fa-cog"></i>
+          <span>Settings</span>
+        </a>
+      </li>
+    </ul>
+    <div class="logout">
+      <a href="/logout">
+        <i class="fas fa-sign-out-alt"></i>
+        <span>Logout</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="dashboard-container">
+    <!-- Header -->
+    <header>
+      <button class="sidebar-toggle" onclick="toggleSidebar()">
+        <i class="fas fa-bars"></i>
+      </button>
+      <h1>Reports</h1>
+      <div class="header-actions">
+        <div class="notification">
+          <i class="fas fa-bell"></i>
+          <span class="badge">3</span>
+          <div class="notification-dropdown">
+            <p>Low balance alert</p>
+            <p>Bill due tomorrow</p>
+            <p>New feature added</p>
+          </div>
+        </div>
+        <label class="theme-switch">
+          <input type="checkbox" id="theme-toggle">
+          <span class="slider"></span>
+        </label>
+      </div>
+    </header>
+
+    <!-- Filters -->
+    <div class="filters">
+      <div class="filter-group">
+        <label for="startDate">Start Date:</label>
+        <input type="date" id="startDate">
+      </div>
+      <div class="filter-group">
+        <label for="endDate">End Date:</label>
+        <input type="date" id="endDate">
+      </div>
+      <div class="filter-group">
+        <label for="category">Category:</label>
+        <select id="category">
+          <option value="all">All Categories</option>
+          <option value="food">Food</option>
+          <option value="utilities">Utilities</option>
+          <option value="entertainment">Entertainment</option>
+          <option value="transport">Transport</option>
+        </select>
+      </div>
+      <button class="generate-report-btn" onclick="generateReport()">Generate Report</button>
+    </div>
+
+    <!-- Report Preview -->
+    <div class="report-preview">
+      <h2>Report Preview</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Description</th>
+            <th>Category</th>
+            <th>Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>2023-10-01</td>
+            <td>Salary</td>
+            <td>Income</td>
+            <td class="amount income">+$5,000.00</td>
+          </tr>
+          <tr>
+            <td>2023-10-02</td>
+            <td>Groceries</td>
+            <td>Food</td>
+            <td class="amount expense">-$150.00</td>
+          </tr>
+          <tr>
+            <td>2023-10-03</td>
+            <td>Internet Bill</td>
+            <td>Utilities</td>
+            <td class="amount expense">-$60.00</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Export Options -->
+    <div class="export-options">
+      <h2>Export Report</h2>
+      <button class="export-btn" onclick="exportPDF()">Export as PDF</button>
+      <button class="export-btn" onclick="exportCSV()">Export as CSV</button>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="reports.js"></script>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+
+  <!-- Local CSS -->
+  <link rel="stylesheet" th:href="@{/css/dashboard.css}">
+
+  <!-- Google Fonts & Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+  <!-- Sidebar Menu -->
+  <div class="sidebar">
+    <div class="logo">
+      <i class="fas fa-wallet"></i>
+      <h2>Finance App</h2>
+    </div>
+    <ul class="menu">
+      <li><a th:href="@{/dashboard}"><i class="fas fa-home"></i><span>Home</span></a></li>
+      <li><a th:href="@{/transactions}"><i class="fas fa-exchange-alt"></i><span>Transactions</span></a></li>
+      <li><a th:href="@{/analytics}"><i class="fas fa-chart-line"></i><span>Analytics</span></a></li>
+      <li><a th:href="@{/reports}" class="active"><i class="fas fa-file-alt"></i><span>Reports</span></a></li>
+      <li><a th:href="@{/about}"><i class="fas fa-info-circle"></i><span>About</span></a></li>
+      <li><a th:href="@{/settings}"><i class="fas fa-cog"></i><span>Settings</span></a></li>
+    </ul>
+    <div class="logout">
+      <a th:href="@{/logout}"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="dashboard-container">
+
+    <!-- Header -->
+    <header>
+      <button class="sidebar-toggle" onclick="toggleSidebar()">
+        <i class="fas fa-bars"></i>
+      </button>
+      <h1>Dashboard</h1>
+      <div class="header-actions">
+
+        <!-- Notification Bell -->
+        <div class="notification">
+          <i class="fas fa-bell"></i>
+          <span class="badge">3</span>
+          <div class="notification-dropdown">
+            <div class="notification-item">
+              <i class="fas fa-exclamation-circle"></i>
+              <p>Low balance alert: Your account balance is below $100.</p>
+            </div>
+            <div class="notification-item">
+              <i class="fas fa-calendar-alt"></i>
+              <p>Reminder: Internet bill due tomorrow.</p>
+            </div>
+            <div class="notification-item">
+              <i class="fas fa-chart-line"></i>
+              <p>Alert: You spent 50% more on dining out this week.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Theme Toggle -->
+        <label class="theme-switch">
+          <input type="checkbox" id="theme-toggle">
+          <span class="slider"></span>
+        </label>
+      </div>
+    </header>
+
+    <!-- Cards Section -->
+    <div class="cards">
+      <div class="card income">
+        <i class="fas fa-wallet"></i>
+        <h2>Total Income</h2>
+        <p>$5,000</p>
+      </div>
+      <div class="card expense">
+        <i class="fas fa-shopping-cart"></i>
+        <h2>Total Expenses</h2>
+        <p>$1,200</p>
+      </div>
+      <div class="card savings">
+        <i class="fas fa-piggy-bank"></i>
+        <h2>Savings</h2>
+        <p>$3,800</p>
+      </div>
+    </div>
+
+    <!-- Achievements Section -->
+    <div class="achievements">
+      <h2>Achievements</h2>
+      <div class="achievement">
+        <i class="fas fa-trophy"></i>
+        <p>Saved $1,000 this month!</p>
+      </div>
+      <div class="achievement locked">
+        <i class="fas fa-lock"></i>
+        <p>Save $5,000 to unlock this achievement.</p>
+      </div>
+    </div>
+
+    <!-- Progress Bars Section -->
+    <div class="progress-section">
+      <h2>Progress Toward Goals</h2>
+      <div class="progress-bar">
+        <div class="progress" style="width: 60%;"></div>
+        <span>60% saved for your vacation goal.</span>
+      </div>
+      <div class="progress-bar">
+        <div class="progress" style="width: 30%;"></div>
+        <span>30% saved for your car goal.</span>
+      </div>
+    </div>
+
+    <!-- Leaderboard Section -->
+    <div class="leaderboard">
+      <h2>Leaderboard</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>User</th>
+            <th>Savings</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>John Doe</td><td>$10,000</td></tr>
+          <tr><td>2</td><td>Jane Smith</td><td>$8,500</td></tr>
+          <tr><td>3</td><td>Alice Johnson</td><td>$7,200</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <!-- Local JavaScript -->
+  <script th:src="@{/js/dashboard.js}"></script>
+</body>
+</html>

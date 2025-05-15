@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Analytics</title>
+  <link rel="stylesheet" href="dashboard.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <!-- Sidebar Menu -->
+  <div class="sidebar">
+    <div class="logo">
+      <i class="fas fa-wallet"></i>
+      <h2>Finance App</h2>
+    </div>
+    <ul class="menu">
+      <li>
+        <a href="/dashboard">
+          <i class="fas fa-home"></i>
+          <span>Home</span>
+        </a>
+      </li>
+      <li>
+        <a href="/transactions">
+          <i class="fas fa-exchange-alt"></i>
+          <span>Transactions</span>
+        </a>
+      </li>
+      <li>
+        <a href="/analytics" class="active">
+          <i class="fas fa-chart-line"></i>
+          <span>Analytics</span>
+        </a>
+      </li>
+      <li>
+        <a href="/about">
+          <i class="fas fa-info-circle"></i>
+          <span>About</span>
+        </a>
+      </li>
+      <li>
+        <a href="/settings">
+          <i class="fas fa-cog"></i>
+          <span>Settings</span>
+        </a>
+      </li>
+    </ul>
+    <div class="logout">
+      <a href="/logout">
+        <i class="fas fa-sign-out-alt"></i>
+        <span>Logout</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="dashboard-container">
+    <!-- Header -->
+    <header>
+      <button class="sidebar-toggle" onclick="toggleSidebar()">
+        <i class="fas fa-bars"></i>
+      </button>
+      <h1>Analytics</h1>
+      <div class="header-actions">
+        <div class="notification">
+          <i class="fas fa-bell"></i>
+          <span class="badge">3</span>
+          <div class="notification-dropdown">
+            <p>Low balance alert</p>
+            <p>Bill due tomorrow</p>
+            <p>New feature added</p>
+          </div>
+        </div>
+        <label class="theme-switch">
+          <input type="checkbox" id="theme-toggle">
+          <span class="slider"></span>
+        </label>
+      </div>
+    </header>
+
+    <!-- Filters -->
+    <div class="filters">
+      <label for="startDate">Start Date:</label>
+      <input type="date" id="startDate">
+      <label for="endDate">End Date:</label>
+      <input type="date" id="endDate">
+      <label for="category">Category:</label>
+      <select id="category">
+        <option value="all">All Categories</option>
+        <option value="food">Food</option>
+        <option value="utilities">Utilities</option>
+        <option value="entertainment">Entertainment</option>
+        <option value="transport">Transport</option>
+      </select>
+      <button onclick="applyFilters()">Apply</button>
+    </div>
+
+    <!-- Key Metrics -->
+    <div class="key-metrics">
+      <div class="metric">
+        <h2>Total Income</h2>
+        <p>$5,000</p>
+      </div>
+      <div class="metric">
+        <h2>Total Expenses</h2>
+        <p>$1,200</p>
+      </div>
+      <div class="metric">
+        <h2>Net Savings</h2>
+        <p>$3,800</p>
+      </div>
+      <div class="metric">
+        <h2>Avg. Spending</h2>
+        <p>$400</p>
+      </div>
+    </div>
+
+    <!-- Charts Section -->
+    <div class="charts">
+      <div class="chart-container">
+        <h2>Income vs Expenses Over Time</h2>
+        <canvas id="lineChart"></canvas>
+      </div>
+      <div class="chart-container">
+        <h2>Spending by Category</h2>
+        <canvas id="pieChart"></canvas>
+      </div>
+    </div>
+
+    <!-- Forecasting Section -->
+    <div class="forecasting">
+      <h2>Income and Expense Forecast</h2>
+      <canvas id="forecastChart"></canvas>
+    </div>
+
+    <!-- Spending Trends Section -->
+    <div class="spending-trends">
+      <h2>Spending Trends</h2>
+      <canvas id="trendsChart"></canvas>
+    </div>
+
+    <!-- Budget Tracking Section -->
+    <div class="budget-tracking">
+      <h2>Budget Tracking</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Category</th>
+            <th>Budget</th>
+            <th>Spent</th>
+            <th>Remaining</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Food</td>
+            <td>$500</td>
+            <td>$400</td>
+            <td class="remaining">$100</td>
+          </tr>
+          <tr>
+            <td>Utilities</td>
+            <td>$200</td>
+            <td>$250</td>
+            <td class="remaining over-budget">-$50</td>
+          </tr>
+          <tr>
+            <td>Entertainment</td>
+            <td>$300</td>
+            <td>$200</td>
+            <td class="remaining">$100</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="analytics.js"></script>
+</body>
+</html>

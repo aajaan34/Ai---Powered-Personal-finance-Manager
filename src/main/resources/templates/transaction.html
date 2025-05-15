@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transaction Page</title>
+  <link rel="stylesheet" href="transaction.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <h1>Transaction History</h1>
+      <p>View and manage your financial transactions.</p>
+    </header>
+
+    <!-- Filter and Search Section -->
+    <div class="filter-section">
+      <div class="filter-group">
+        <label for="filter">Filter by:</label>
+        <select id="filter">
+          <option value="all">All Transactions</option>
+          <option value="income">Income</option>
+          <option value="expense">Expense</option>
+        </select>
+      </div>
+      <div class="search-group">
+        <input type="text" id="search" placeholder="Search transactions...">
+        <i class="fas fa-search"></i>
+      </div>
+    </div>
+
+    <!-- Transaction Table -->
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Description</th>
+            <th>Category</th>
+            <th>Amount</th>
+            <th>Type</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>2023-10-01</td>
+            <td>Salary</td>
+            <td>Income</td>
+            <td class="amount income">+$5,000.00</td>
+            <td><span class="badge income">Income</span></td>
+          </tr>
+          <tr>
+            <td>2023-10-02</td>
+            <td>Groceries</td>
+            <td>Food</td>
+            <td class="amount expense">-$150.00</td>
+            <td><span class="badge expense">Expense</span></td>
+          </tr>
+          <tr>
+            <td>2023-10-03</td>
+            <td>Internet Bill</td>
+            <td>Utilities</td>
+            <td class="amount expense">-$60.00</td>
+            <td><span class="badge expense">Expense</span></td>
+          </tr>
+          <tr>
+            <td>2023-10-04</td>
+            <td>Freelance Work</td>
+            <td>Income</td>
+            <td class="amount income">+$1,200.00</td>
+            <td><span class="badge income">Income</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Graph Section -->
+    <div class="graph-section">
+      <h2>Monthly Summary</h2>
+      <canvas id="transactionChart"></canvas>
+    </div>
+  </div>
+  
+
+  <!-- JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>

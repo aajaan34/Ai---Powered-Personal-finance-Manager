@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About - Aajaan Shaikh</title>
+  <link rel="stylesheet" href="reports.css"> <!-- Reuse your existing CSS -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <!-- Sidebar Menu -->
+  <div class="sidebar">
+    <div class="logo">
+      <i class="fas fa-wallet"></i>
+      <h2>Finance App</h2>
+    </div>
+    <ul class="menu">
+      <li>
+        <a href="/dashboard">
+          <i class="fas fa-home"></i>
+          <span>Home</span>
+        </a>
+      </li>
+      <li>
+        <a href="/transactions">
+          <i class="fas fa-exchange-alt"></i>
+          <span>Transactions</span>
+        </a>
+      </li>
+      <li>
+        <a href="/analytics">
+          <i class="fas fa-chart-line"></i>
+          <span>Analytics</span>
+        </a>
+      </li>
+      <li>
+        <a href="/reports">
+          <i class="fas fa-file-alt"></i>
+          <span>Reports</span>
+        </a>
+      </li>
+      <li>
+        <a href="/about" class="active">
+          <i class="fas fa-info-circle"></i>
+          <span>About</span>
+        </a>
+      </li>
+      <li>
+        <a href="/settings">
+          <i class="fas fa-cog"></i>
+          <span>Settings</span>
+        </a>
+      </li>
+    </ul>
+    <div class="logout">
+      <a href="/logout">
+        <i class="fas fa-sign-out-alt"></i>
+        <span>Logout</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="dashboard-container">
+    <!-- Header -->
+    <header>
+      <button class="sidebar-toggle" onclick="toggleSidebar()">
+        <i class="fas fa-bars"></i>
+      </button>
+      <h1>About</h1>
+      <div class="header-actions">
+        <div class="notification">
+          <i class="fas fa-bell"></i>
+          <span class="badge">3</span>
+          <div class="notification-dropdown">
+            <p>Low balance alert</p>
+            <p>Bill due tomorrow</p>
+            <p>New feature added</p>
+          </div>
+        </div>
+        <label class="theme-switch">
+          <input type="checkbox" id="theme-toggle">
+          <span class="slider"></span>
+        </label>
+      </div>
+    </header>
+
+    <!-- About Content -->
+    <div class="about-content">
+      <!-- Hero Section -->
+      <section class="hero">
+        <h2>Hello, I'm Aajaan Shaikh</h2>
+        <p>Welcome to my Finance App! Here's a little about me and my work.</p>
+      </section>
+
+      <!-- Profile Section -->
+      <section class="profile">
+        <div class="profile-image">
+          <img src="profile.jpg" alt="Aajaan Shaikh">
+        </div>
+        <div class="profile-details">
+          <h3>Aajaan Shaikh</h3>
+          <p><strong>Roll No:</strong> 23143</p>
+          <p><strong>Email:</strong> <a href="mailto:shaikhaajaan786@gmail.com">shaikhaajaan786@gmail.com</a></p>
+          <p>
+            I'm a passionate developer with a keen interest in building user-friendly applications. 
+            This Finance App is one of my projects aimed at helping users manage their finances effectively.
+          </p>
+        </div>
+      </section>
+
+      <!-- Skills/Interests Section -->
+      <section class="skills">
+        <h3>Skills & Interests</h3>
+        <ul>
+          <li>Web Development (HTML, CSS, JavaScript)</li>
+          <li>Finance Management Tools</li>
+          <li>UI/UX Design</li>
+          <li>Data Visualization</li>
+        </ul>
+      </section>
+
+      <!-- Contact Section -->
+      <section class="contact">
+        <h3>Get in Touch</h3>
+        <p>Feel free to reach out to me for collaborations, feedback, or just a chat!</p>
+        <a href="mailto:shaikhaajaan786@gmail.com" class="contact-btn">Email Me</a>
+      </section>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="/js/reports.js"></script>
+</body>
+</html>
